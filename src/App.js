@@ -32,6 +32,14 @@ class App extends Component {
         })
     };
 
+    delete = (index) => {
+        let newPeople = [...this.state.people];
+        newPeople.splice(index, 1)
+        this.setState({
+            people: newPeople
+        })
+    }
+
     hidePerson = () => {
         this.setState({showPerson: !this.state.showPerson})
     };
@@ -44,6 +52,7 @@ class App extends Component {
                                 age={person.age}
                                 gender={person.gender}
                                 onNameClick={this.switchNameHandler.bind(this, index)}
+                                delete={this.delete.bind(this, index)}
                                 key={index}
                         />
                     : null

@@ -10,6 +10,7 @@ const Person = (props) => {
             <div>{props.gender}</div>
             <div>{props.children}</div>
             <input onChange={onChangeInput} value={props.name}/>
+            <button className="delete" onClick={props.delete}> Delete</button>
         </div>
     )
 };
