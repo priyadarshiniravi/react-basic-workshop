@@ -20,7 +20,8 @@ class App extends Component {
                 age: 25,
                 gender: "Male"
             }
-        ]
+        ],
+        showPerson: true
     };
 
     switchNameHandler = (name) => {
@@ -45,20 +46,28 @@ class App extends Component {
         })
     };
 
+    hidePerson = () => {
+        this.setState({showPerson: !this.state.showPerson})
+    };
+
+    renderPerson = () => {
+        return this.state.people.map((person) => {
+            return (
+                <div>
+                    <Person name={person.name}
+                            age={person.age}
+                            gender={person.gender}
+                            onNameClick={this.switchNameHandler}/>
+                </div>
+            )
+        })
+    };
+
     render() {
         return (
             <div className="App">
-                <button onClick={this.switchNameHandler.bind(this, "RandomName")}>Reset Random Name</button>
-                {this.state.people.map((person) => {
-                    return (
-                        <div>
-                            <Person name={person.name}
-                                    age={person.age}
-                                    gender={person.gender}
-                                    onNameClick={this.switchNameHandler}/>
-                        </div>
-                    )
-                })}
+                <button onClick={this.hidePerson} >Toggle showing Person</button>
+                {this.state.showPerson ? this.renderPerson() : null}
             </div>
         );
     }
