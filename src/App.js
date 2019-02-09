@@ -20,7 +20,8 @@ const App = () => {
                 age: 25,
                 gender: "Male"
             }
-        ]
+        ],
+        otherState: "Any other State"
     });
 
     const switchNameHandler = () => {
@@ -45,6 +46,7 @@ const App = () => {
         })
     };
 
+    console.log(currentState)
 
     return (
         <div className="App">
