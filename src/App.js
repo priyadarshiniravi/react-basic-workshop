@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Person from "./person/Person";
 
-class App extends Component {
-    state = {
+const App = () => {
+    const [currentState, setState] = useState({
         people: [
             {
                 name: "Priya",
@@ -21,10 +21,10 @@ class App extends Component {
                 gender: "Male"
             }
         ]
-    };
+    });
 
-    switchNameHandler = () => {
-        this.setState({
+    const switchNameHandler = () => {
+        setState({
             people: [
                 {
                     name: "Priya",
@@ -45,21 +45,21 @@ class App extends Component {
         })
     };
 
-    render() {
-        return (
-            <div className="App">
-                <button onClick={this.switchNameHandler}>Switch Name</button>
-                {this.state.people.map((person) => {
-                    return (
-                        <div>
-                            <Person name={person.name} age={person.age} gender={person.gender} />
-                            <hr />
-                        </div>
-                    )
-                })}
-            </div>
-        );
-    }
+
+    return (
+        <div className="App">
+            <button onClick={switchNameHandler}>Switch Name</button>
+            {currentState.people.map((person) => {
+                return (
+                    <div>
+                        <Person name={person.name} age={person.age} gender={person.gender}/>
+                        <hr/>
+                    </div>
+                )
+            })}
+        </div>
+    );
+
 }
 
 export default App;
