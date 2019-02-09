@@ -40,12 +40,13 @@ class App extends Component {
         return this.state.people.map((person, index) => {
             return (
                 this.state.showPerson ?
-                    <div>
                         <Person name={person.name}
                                 age={person.age}
                                 gender={person.gender}
-                                onNameClick={this.switchNameHandler.bind(this, index)}/>
-                    </div> : null
+                                onNameClick={this.switchNameHandler.bind(this, index)}
+                                key={index}
+                        />
+                    : null
             )
         })
     };
