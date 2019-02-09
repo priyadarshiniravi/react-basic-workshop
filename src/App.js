@@ -23,7 +23,7 @@ class App extends Component {
         ]
     };
 
-    switchNameHandler = () => {
+    switchNameHandler = (name) => {
         this.setState({
             people: [
                 {
@@ -37,9 +37,9 @@ class App extends Component {
                     gender: "Male"
                 },
                 {
-                    name: "RandomNameSwitched",
-                    age: 28,
-                    gender: "Female"
+                    name: name,
+                    age: 25,
+                    gender: "Male"
                 }
             ]
         })
@@ -48,11 +48,14 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.switchNameHandler}>Switch Name</button>
+                <button onClick={this.switchNameHandler.bind(this, "RandomName")}>Reset Random Name</button>
                 {this.state.people.map((person) => {
                     return (
                         <div>
-                            <Person name={person.name} age={person.age} gender={person.gender} />
+                            <Person name={person.name}
+                                    age={person.age}
+                                    gender={person.gender}
+                                    onNameClick={this.switchNameHandler}/>
                             <hr />
                         </div>
                     )
