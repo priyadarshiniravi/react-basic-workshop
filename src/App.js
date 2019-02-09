@@ -3,12 +3,33 @@ import './App.css';
 import Person from "./person/Person";
 
 class App extends Component {
+    state = {
+        people: [
+            {
+                name: "Priya",
+                age: 25,
+                gender: "Female"
+            },
+            {
+                name: "Uday",
+                age: 25,
+                gender: "Male"
+            }
+        ]
+    };
+
     render() {
         return (
             <div className="App">
-                <Person name="Priya" age={25} gender="female"/>
-                <hr/>
-                <Person name="Uday" age={25} gender="male">My Hobbies: Reading Books</Person>
+                <button>Switch Name</button>
+                {this.state.people.map((person) => {
+                    return (
+                        <div>
+                            <Person name={person.name} age={person.age} gender={person.gender} />
+                            <hr />
+                        </div>
+                    )
+                })}
             </div>
         );
     }
