@@ -1,0 +1,6 @@
+.person {
+    border: rgba(201, 198, 204, 0.3) solid 1px;
+    box-shadow: 0 2px 3px rgba(204, 204, 204, 0.64);
+    margin: 7px;
+    padding: 10px;
+}

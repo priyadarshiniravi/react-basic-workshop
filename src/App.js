@@ -56,7 +56,6 @@ class App extends Component {
                                     age={person.age}
                                     gender={person.gender}
                                     onNameClick={this.switchNameHandler}/>
-                            <hr />
                         </div>
                     )
                 })}
