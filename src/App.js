@@ -24,25 +24,11 @@ class App extends Component {
         showPerson: true
     };
 
-    switchNameHandler = (name) => {
+    switchNameHandler = (index, name) => {
+        let newPeople = [...this.state.people];
+        newPeople[index].name = name;
         this.setState({
-            people: [
-                {
-                    name: "Priya",
-                    age: 25,
-                    gender: "Female"
-                },
-                {
-                    name: "Uday",
-                    age: 25,
-                    gender: "Male"
-                },
-                {
-                    name: name,
-                    age: 25,
-                    gender: "Male"
-                }
-            ]
+            people: newPeople
         })
     };
 
@@ -51,14 +37,14 @@ class App extends Component {
     };
 
     renderPerson = () => {
-        return this.state.people.map((person) => {
+        return this.state.people.map((person, index) => {
             return (
                 this.state.showPerson ?
                     <div>
                         <Person name={person.name}
                                 age={person.age}
                                 gender={person.gender}
-                                onNameClick={this.switchNameHandler}/>
+                                onNameClick={this.switchNameHandler.bind(this, index)}/>
                     </div> : null
             )
         })
@@ -67,7 +53,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <button onClick={this.hidePerson} >Toggle showing Person</button>
+                <button onClick={this.hidePerson}>Toggle showing Person</button>
                 {this.renderPerson()}
             </div>
         );
