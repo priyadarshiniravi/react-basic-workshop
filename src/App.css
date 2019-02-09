@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+.button {
+  padding: 3px;
+  cursor:pointer;
+}
+
+.button-red {
+  background-color: red;
+}
+
+.button-green {
+  background-color: green;
+}

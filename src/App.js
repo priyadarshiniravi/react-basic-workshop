@@ -61,9 +61,10 @@ class App extends Component {
     };
 
     render() {
+        let buttonStyle = `button ${this.state.showPerson ? "button-green" :"button-red"}`;
         return (
             <div className="App">
-                <button onClick={this.hidePerson}>Toggle showing Person</button>
+                <button onClick={this.hidePerson} className={buttonStyle}>Toggle showing Person</button>
                 {this.renderPerson()}
             </div>
         );
