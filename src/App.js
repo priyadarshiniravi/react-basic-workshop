@@ -26,6 +26,7 @@ const App = () => {
 
     const switchNameHandler = () => {
         setState({
+            ...currentState,
             people: [
                 {
                     name: "Priya",
@@ -45,8 +46,6 @@ const App = () => {
             ]
         })
     };
-
-    console.log(currentState)
 
     return (
         <div className="App">
