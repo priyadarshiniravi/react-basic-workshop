@@ -3,7 +3,7 @@ import './App.css';
 import Person from "./person/Person";
 
 const App = () => {
-    const [currentState, setState] = useState({
+    const [personState, setPersonState] = useState({
         people: [
             {
                 name: "Priya",
@@ -21,12 +21,14 @@ const App = () => {
                 gender: "Male"
             }
         ],
-        otherState: "Any other State"
+    });
+
+    const [otherState, setOtherState] = useState({
+        someOtherState: "someOtherState"
     });
 
     const switchNameHandler = () => {
-        setState({
-            ...currentState,
+        setPersonState({
             people: [
                 {
                     name: "Priya",
@@ -50,7 +52,7 @@ const App = () => {
     return (
         <div className="App">
             <button onClick={switchNameHandler}>Switch Name</button>
-            {currentState.people.map((person) => {
+            {personState.people.map((person) => {
                 return (
                     <div>
                         <Person name={person.name} age={person.age} gender={person.gender}/>
