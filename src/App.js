@@ -14,14 +14,41 @@ class App extends Component {
                 name: "Uday",
                 age: 25,
                 gender: "Male"
+            },
+            {
+                name: "RandomName",
+                age: 25,
+                gender: "Male"
             }
         ]
+    };
+
+    switchNameHandler = () => {
+        this.setState({
+            people: [
+                {
+                    name: "Priya",
+                    age: 25,
+                    gender: "Female"
+                },
+                {
+                    name: "Uday",
+                    age: 25,
+                    gender: "Male"
+                },
+                {
+                    name: "RandomNameSwitched",
+                    age: 28,
+                    gender: "Female"
+                }
+            ]
+        })
     };
 
     render() {
         return (
             <div className="App">
-                <button>Switch Name</button>
+                <button onClick={this.switchNameHandler}>Switch Name</button>
                 {this.state.people.map((person) => {
                     return (
                         <div>
