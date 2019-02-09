@@ -53,12 +53,13 @@ class App extends Component {
     renderPerson = () => {
         return this.state.people.map((person) => {
             return (
-                <div>
-                    <Person name={person.name}
-                            age={person.age}
-                            gender={person.gender}
-                            onNameClick={this.switchNameHandler}/>
-                </div>
+                this.state.showPerson ?
+                    <div>
+                        <Person name={person.name}
+                                age={person.age}
+                                gender={person.gender}
+                                onNameClick={this.switchNameHandler}/>
+                    </div> : null
             )
         })
     };
@@ -67,7 +68,7 @@ class App extends Component {
         return (
             <div className="App">
                 <button onClick={this.hidePerson} >Toggle showing Person</button>
-                {this.state.showPerson ? this.renderPerson() : null}
+                {this.renderPerson()}
             </div>
         );
     }
