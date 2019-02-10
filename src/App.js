@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Person from "./person/Person";
 
 class App extends Component {
@@ -61,9 +61,10 @@ class App extends Component {
     };
 
     render() {
-        let buttonStyle = `button ${this.state.showPerson ? "button-green" :"button-red"}`;
+        let buttonColor = this.state.showPerson? styles["button-red"] : styles["button-green"];
+        let buttonStyle = [styles.button, buttonColor].join(' ');
         return (
-            <div className="App">
+            <div className={styles.App}>
                 <button onClick={this.hidePerson} className={buttonStyle}>Toggle showing Person</button>
                 {this.renderPerson()}
             </div>

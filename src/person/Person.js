@@ -1,16 +1,16 @@
 import React from 'react';
-import './Person.css'
+import styles from './Person.module.css'
 
 const Person = (props) => {
     let onChangeInput = (event) => props.onNameClick.bind(this, event.target.value)();
     return (
-        <div className="person">
+        <div className={styles.person}>
             <div>{props.name}</div>
             <div>{props.age}</div>
             <div>{props.gender}</div>
             <div>{props.children}</div>
             <input onChange={onChangeInput} value={props.name}/>
-            <button className="delete" onClick={props.delete}> Delete</button>
+            <button className={styles.delete} onClick={props.delete}> Delete</button>
         </div>
     )
 };
