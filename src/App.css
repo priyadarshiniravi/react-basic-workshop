@@ -5,12 +5,22 @@
 .button {
   padding: 3px;
   cursor:pointer;
+  border: none;
+  outline:none;
 }
 
 .button-red {
-  background-color: red;
+  background-color: #ff4348;
+}
+
+.button-red:hover {
+  background-color: lightskyblue;
+}
+
+.button-green:hover {
+  background-color: lightskyblue;
 }
 
 .button-green {
-  background-color: green;
+  background-color: #528055;
 }
